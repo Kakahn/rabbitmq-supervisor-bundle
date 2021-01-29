@@ -318,8 +318,8 @@ class RabbitMqSupervisor
     private function generateWorkerConfigurations($names, $baseCommand)
     {
         // try different possible console paths (realpath() will throw away the not existing ones)
-        $consolePaths = [];
-        foreach (['bin', 'app'] as $consoleDirectory) {
+        $consolePaths = []
+        /*foreach (['bin', 'app'] as $consoleDirectory) {
             $consolePath = sprintf('%s/%s/console', $this->rootDir, $consoleDirectory);
             if (!empty(realpath($consolePath))) {
                 $consolePaths[] = $consolePath;
@@ -327,9 +327,9 @@ class RabbitMqSupervisor
         }
 
         // fall back to standard console path if none of the paths was valid
-        if (empty($consolePaths)) {
-            $consolePaths[] = sprintf('%s/%s/console', $this->rootDir, 'bin');
-        }
+        if (empty($consolePaths)) {*/
+        $consolePaths[] = sprintf('%s/sources/%s/console', $this->rootDir, 'bin');
+        //}
 
         $executablePath = $consolePaths[0];
 
