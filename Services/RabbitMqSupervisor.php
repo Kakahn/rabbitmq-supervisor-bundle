@@ -318,7 +318,7 @@ class RabbitMqSupervisor
     private function generateWorkerConfigurations($names, $baseCommand)
     {
         // try different possible console paths (realpath() will throw away the not existing ones)
-        $consolePaths = []
+        //$consolePaths = []
         /*foreach (['bin', 'app'] as $consoleDirectory) {
             $consolePath = sprintf('%s/%s/console', $this->rootDir, $consoleDirectory);
             if (!empty(realpath($consolePath))) {
@@ -328,10 +328,11 @@ class RabbitMqSupervisor
 
         // fall back to standard console path if none of the paths was valid
         if (empty($consolePaths)) {*/
-        $consolePaths[] = sprintf('%s/sources/%s/console', $this->rootDir, 'bin');
+        //$consolePaths[] = sprintf('%s/sources/%s/console', $this->rootDir, 'bin');
         //}
 
-        $executablePath = $consolePaths[0];
+        //$executablePath = $consolePaths[0];
+        $executablePath = sprintf('%s/sources/%s/console', $this->rootDir, 'bin');
 
         foreach ($names as $name) {
             // override command when set in consumer configuration
