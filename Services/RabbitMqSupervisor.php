@@ -123,7 +123,7 @@ class RabbitMqSupervisor
 
         // remove old worker configuration files
         /** @var \SplFileInfo $item */
-        foreach (new \DirectoryIterator($this->paths['worker_configuration_directory']) as $item) {
+        /*foreach (new \DirectoryIterator($this->paths['worker_configuration_directory']) as $item) {
             if ($item->isDir()) {
                 continue;
             }
@@ -133,7 +133,7 @@ class RabbitMqSupervisor
             }
 
             unlink($item->getRealPath());
-        }
+        }*/
 
         // generate program configuration files for all consumers
         $this->generateWorkerConfigurations(array_keys($this->consumers), $this->commands['rabbitmq_consumer']);
